@@ -24,13 +24,13 @@ public class Sort {
         System.out.println(Arrays.toString(arr4));
         int[] arr5 = {50,10,90,30,70,40,80,60,20};
         System.out.println("堆排序：");
-
+        HeapSort(arr5);
         int[] arr6 = {61,53,19,77,3,4,5};
         System.out.println("希尔排序：");
         shellSort(arr6);
         int[] arr7 = {1,67,77,43,66,21,37,7};
         System.out.println("桶排序(基数排序)：");
-
+        radixSort(arr7);
     }
 
     /**
@@ -283,7 +283,7 @@ public class Sort {
             // 交换之后，需要重新检查堆是否符合大顶堆，不符合则要调整
             heapAdjust(arr, 0, i);
         }
-
+        System.out.println(Arrays.toString(arr));
     }
     /**
      * 构建堆的过程
@@ -366,6 +366,7 @@ public class Sort {
             }
         }
 
+        System.out.println(Arrays.toString(arr));
     }
 
     /**
