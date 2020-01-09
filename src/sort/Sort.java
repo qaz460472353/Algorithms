@@ -158,11 +158,11 @@ public class Sort {
     }
 
     /**
-     * 归并排序
+     * 归并排序（二路归并）
      * 思路：
-     *      将两个已排好序的数组合并成一个有序的数组。
-     *      将元素分隔开来,看成是有序的数组,进行比较合并
-     *      不断拆分和合并,直到只有一个元素
+     *      把长度为n的输入序列分成两个长度为n/2的子序列；
+     *      对这两个子序列分别采用归并排序；
+     *      将两个排序好的子序列合并成一个最终的排序序列。
      * @param arr
      * @param L
      * @param R
@@ -197,18 +197,18 @@ public class Sort {
         //右边的数组大小
         int[] rightArray = new int[R - M + 1];
         //往这两个数组填充数据
-        for (int i = L; i < M; i++) {
-            leftArray[i - L] = arrays[i];
-        }
-        for (int i = M; i <= R; i++) {
-            rightArray[i - M] = arrays[i];
+        for (int i = L; i <= R; i++) {
+            if ( i < M ) {
+                leftArray[i - L] = arrays[i];
+            }else {
+                rightArray[i - M] = arrays[i];
+            }
         }
         int i = 0, j = 0;
         // arrays数组的第一个元素
         int  k = L;
         //比较这两个数组的值,哪个小,就往数组上放
         while (i < leftArray.length && j < rightArray.length) {
-
             //谁比较小,谁将元素放入大数组中,移动指针,继续比较下一个
             if (leftArray[i] < rightArray[j]) {
                 arrays[k] = leftArray[i];
@@ -223,21 +223,19 @@ public class Sort {
         //如果左边的数组还没比较完,右边的数都已经完了,那么将左边的数抄到大数组中(剩下的都是大数字)
         while (i < leftArray.length) {
             arrays[k] = leftArray[i];
-
             i++;
             k++;
         }
         //如果右边的数组还没比较完,左边的数都已经完了,那么将右边的数抄到大数组中(剩下的都是大数字)
         while (j < rightArray.length) {
             arrays[k] = rightArray[j];
-
             k++;
             j++;
         }
     }
 
     /**
-     * 希尔排序
+     * 希尔排序（缩小增量排序）
      * 思路：
      *      希尔排序实质上就是插入排序的增强版,
      *      希尔排序将数组分隔成n组来进行插入排序,直至该数组宏观上有序,
