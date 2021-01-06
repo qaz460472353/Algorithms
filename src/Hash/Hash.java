@@ -9,7 +9,8 @@ public class Hash<K,V> {
     private Node<K,V>[] nodes;
     //元素个数
     private int size;
-    public V put(K key,V value) {
+
+    public Node<K,V> put(K key,V value) {
         //初始化数组
         if(nodes == null) {
             nodes = new Node[defaultCapacity];
@@ -18,6 +19,8 @@ public class Hash<K,V> {
         int index = hash(key);
         //获取到数组角标元素，可视为头结点
         Node<K,V> node = nodes[index];
+
+        return node;
     }
 
 

@@ -128,7 +128,7 @@ public class Sort {
         int pivot = arr[(L+R)/2];
 
         //左右两端进行扫描,只要两端还没有交替,就一直扫描
-        if (i <= j) {
+        while (i <= j) {
             //寻找直到比支点大的数
             while (pivot > arr[i]) {
                 i++;

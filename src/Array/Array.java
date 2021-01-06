@@ -8,6 +8,7 @@ package Array;
  * 大小固定，不能动态扩展(初始化给大了，浪费；给小了，不够用)，插入快，删除和查找慢
  */
 public class Array {
+
     private int[] intArray;
     private int elems;
     private int length;
@@ -20,7 +21,6 @@ public class Array {
 
     /**
      * 添加
-     *
      * @param value
      */
     public void add(int value) {
@@ -99,6 +99,9 @@ public class Array {
      * 冒泡排序
      * 每趟冒出一个最大数/最小数
      * 每次运行数量：总数量-运行的趟数(已冒出)
+     * 思路：
+     *      俩俩交换,大的放在后面,第一次排序后最大值已在数组末尾。
+     *      因为俩俩交换,需要n-1趟排序,比如10个数,需要9趟排序
      */
     public void bubbleSort() {
         //排序趟数  n-1次就行了
@@ -148,6 +151,7 @@ public class Array {
      */
     public void insertSort() {
         int j;
+        // 排序趟数
         for (int i = 1; i < elems; i++) {
             int temp = intArray[i];
             j = i;
