@@ -1,4 +1,4 @@
-package multithreading;
+package MultiThreading;
 
 /**
  * @Description 子线程运行执行10次后，主线程再运行5次，这样交替执行三遍

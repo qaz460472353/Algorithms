@@ -1,6 +1,5 @@
-package multithreading.Executor;
+package MultiThreading.Executor;
 
-import java.util.TimerTask;
 import java.util.concurrent.*;
 
 /**

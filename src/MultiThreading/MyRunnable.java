@@ -1,4 +1,4 @@
-package multithreading;
+package MultiThreading;
 
 /**
  * @Description TODO

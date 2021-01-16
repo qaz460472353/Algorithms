@@ -1,4 +1,4 @@
-package multithreading.ShareData;
+package MultiThreading.ShareData;
 
 /**
  * @Description

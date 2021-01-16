@@ -1,4 +1,4 @@
-package multithreading.ThreadLocal;
+package MultiThreading.ThreadLocal;
 
 /**
  * @Description 私有静态ThreadLocal实例（serialNum）为调用该类的静态SerialNum.get()方法的每个线程维护了一个序列号，
