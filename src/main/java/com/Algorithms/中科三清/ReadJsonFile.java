@@ -9,34 +9,35 @@ import java.util.List;
 public class ReadJsonFile {
 
     static List<String> names = new ArrayList<>();
-
     public static void main(String[] args) {
         String json = readJsonFile("src/main/resources/省市县三级联动.json");
         List<Node> nodes = JSON.parseArray(json, Node.class);
-        List<String> nodes1 = getNodes(nodes, 2,null);
-        System.out.println(nodes1.toString());
+        List<String> names = getNodes(nodes, 3,"",1);
+        System.out.println(names.toString());
     }
 
-    public static List<String> getNodes(List<Node> nodes, int n,String nodeName) {
+    public static List<String> getNodes(List<Node> nodes, int lv,String nodeName,int n) {
         if (nodes == null || n <= 0) {
             return null;
         }
-
         for (Node node : nodes) {
-            if (nodeName == null) {
+            if (n == 0) {
+                nodeName = "";
+            } else if (n == 1) {
                 nodeName = node.name;
             } else {
-               nodeName += ("-"+node.name);
+                nodeName += ("-"+node.name);
+            }
+            if (n == lv) {
+                names.add(nodeName);
+            }
+            /**
+             *  此处存在问题，缺失联动登记判断，
+             */
+            if (node.children != null && n < lv) {
+                getNodes(node.children,lv,nodeName,++n);
             }
 
-            if (n == 1) {
-                names.add(nodeName);
-                nodeName = null;
-            }
-            
-            if (node.children.size() > 0 && n > 1) {
-                getNodes(node.children,n-1,nodeName);
-            }
         }
         return names;
     }
