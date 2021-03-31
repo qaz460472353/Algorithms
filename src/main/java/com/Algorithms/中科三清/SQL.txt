@@ -1,0 +1,12 @@
+SELECT
+    site_name,
+    COUNT( * ) AS count
+FROM
+    site_pm10_info
+WHERE
+    pm10 > '80'
+    AND created_time BETWEEN '2021-03-26 16:16:43' AND '2021-03-26 16:16:45'
+GROUP BY
+    pm10
+HAVING
+    count > 2
