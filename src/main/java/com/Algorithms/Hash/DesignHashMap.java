@@ -1,4 +1,4 @@
-package com.Algorithms.LeetCode;
+package com.Algorithms.Hash;
 
 /**
  * 设计哈希映射
