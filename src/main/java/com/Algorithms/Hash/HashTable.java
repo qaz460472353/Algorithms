@@ -17,7 +17,7 @@ package com.Algorithms.Hash;
  *     6、具体的添加数据的方法input()——私有方法
  */
 public class HashTable {
-    //定义一个节点类，里面定义了每一个节点所需要的数据
+    // 定义一个节点类，里面定义了每一个节点所需要的数据
     public class Node {
         Node next;//指向下一节点
         Object key;//键值
